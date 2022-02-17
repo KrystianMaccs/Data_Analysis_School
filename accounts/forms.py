@@ -34,9 +34,9 @@ class TeacherSignUpForm(UserCreationForm):
 class ContactForm(forms.Form):
     name = forms.CharField()
     email = forms.EmailField(label="Email")
-    subject =forms.CharField(required=False)
+    """subject =forms.CharField(required=False)
     category = forms.ChoiceField(choices=[('Courses', 'Courses'), ('Other', 'Other'),
-                                          ])
+                                          ])"""
     message = forms.CharField(widget=forms.Textarea)
         
         

@@ -1,4 +1,4 @@
-from django.contrib.auth import login, logout,authenticate
+from django.contrib.auth import login,authenticate
 from django.shortcuts import redirect,render
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse
@@ -9,8 +9,8 @@ from django.db.models.query_utils import Q
 from django.utils.http import urlsafe_base64_encode
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.encoding import force_bytes
-from django.views.generic import View
-from django.views.generic import CreateView,FormView
+from django.views.generic.base import TemplateView
+from django.views.generic import CreateView, FormView
 
 from .forms import StudentSignUpForm,TeacherSignUpForm,ContactForm
 from .models import Student,Teacher
@@ -43,34 +43,6 @@ class TeacherSignUp(CreateView):
         user = form.save()
         login(self.request, user)
         return redirect('/')
-
-
-class LoginView(View):
-    template_name = 'accounts/login.html'
-    form_class = AuthenticationForm
-    
-    def get(self, request):
-        form = self.form_class()
-        message = ''
-        return render(request, self.template_name, context={'form': form, 'message': message})
-        
-    def post(self, request):
-        form = self.form_class(request.POST)
-        if form.is_valid():
-            user = authenticate(
-                username=form.cleaned_data['username'],
-                password=form.cleaned_data['password'],
-            )
-            if user is not None:
-                login(request, user)
-                return redirect('home')
-        message = 'Login failed!'
-        return render(request, self.template_name, context={'form': form, 'message': message})
-
-
-
-
-
 
 
 def password_reset_request(request):
@@ -122,11 +94,14 @@ def change_password(request):
     
     
     
-    
-    
-    
 class ContactView(FormView):
     form_class = ContactForm
     template_name = 'contact.html'
 
     success_url = "/"
+
+class CoursesView(TemplateView):
+     template_name = 'courses.html'
+
+class HomeView(TemplateView):
+     template_name = 'home.html'
