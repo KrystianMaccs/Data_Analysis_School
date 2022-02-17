@@ -4,17 +4,36 @@
 
 {% block content %} 
 
-<h2> Sign up as a Teacher </h2>
-
 <hr>
  <br>
 
-<form method="POST">
-    {% csrf_token %} 
-    {{form|crispy}}
-    <br>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form> 
-
+  <section class="section contact" href="{% url 'contact' %}" data-section="section6">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-heading">
+            <h2>Sign up as a Tutor</h2>
+          </div>
+        </div>
+        <div class="col-md-6">
+        
+        <!-- Do you need a working HTML contact-form script?-->
+                    
+                    
+          <form id="contact" action="" method="POST">
+            <div class="row">
+              <div class="col-md-12">
+                {% csrf_token %} 
+                {{form|crispy}}
+                <fieldset>
+                  <button type="submit" id="form-submit" class="button">Submit</button>
+                </fieldset>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
 
   {% endblock %} 

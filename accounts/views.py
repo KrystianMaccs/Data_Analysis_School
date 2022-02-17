@@ -96,7 +96,7 @@ def change_password(request):
     
 class ContactView(FormView):
     form_class = ContactForm
-    template_name = 'contact.html'
+    template_name = 'home.html'
 
     success_url = "/"
 
