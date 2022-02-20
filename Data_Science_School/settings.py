@@ -34,6 +34,9 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     #user defined apps
     'accounts',
+    'blog', 
+    'memberships',
+    'courses',
     #built-in apps
     'django.contrib.admin',
     'django.contrib.auth',
@@ -151,3 +154,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+
+ #configurations for stripe
+if DEBUG:
+    STRIPE_PUBLISHABLE_KEY = 'pk_test_8pUBm5JrWpDZfnJ1WdvssH2300umjAVpo2'
+    STRIPE_SECRET_KEY = 'sk_test_D07Y9OzNkW0biuvJ2U9LcK9000Kz9QKlHN'
+
+else:
+    # live keys
+    STRIPE_PUBLISHABLE_KEY = ''
+    STRIPE_SECRET_KEY = ''

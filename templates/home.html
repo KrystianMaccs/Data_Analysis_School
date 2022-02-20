@@ -1,23 +1,23 @@
-{% extends 'base.html' %} {% load crispy_forms_tags %}
-{% load static %}
+{% extends 'base.html' %} {% load static %}
 
-{% block content %}
-<!-- ***** Main Banner Area Start ***** -->
-<section class="section main-banner" id="top" data-section="section1">
+<body>
+  {% block content %}
+
+  <section class="section main-banner" id="top" data-section="section1">
     <video autoplay muted loop id="bg-video">
         <source src="{% static 'assets/images/course-video.mp4' %}" type="video/mp4" />
     </video>
 
     <div class="video-overlay header-text">
         <div class="caption">
-            <h6>Sirius Academy: A convergence of Stars</h6>
+            <h6>Graduate School of Management</h6>
             <h2><em>Your</em> Classroom</h2>
             <div class="main-button">
                 <div class="scroll-to-section"><a href="#section2">Discover more</a></div>
             </div>
         </div>
     </div>
-</section>
+  </section>
 <!-- ***** Main Banner Area End ***** -->
 
 
@@ -33,8 +33,8 @@
             <div class="content-hide">
               <p>Curabitur id eros vehicula, tincidunt libero eu, lobortis mi. In mollis eros a posuere imperdiet. Donec maximus elementum ex. Cras convallis ex rhoncus, laoreet libero eu, vehicula libero.</p>
               <p class="hidden-sm">Curabitur id eros vehicula, tincidunt libero eu, lobortis mi. In mollis eros a posuere imperdiet.</p>
-              <div class="scroll-to-section"><a href="{% url 'courses' %}">More Info.</a></div>
-          </div>
+              <div class="scroll-to-section"><a href="#section2">More Info.</a></div>
+            </div>
           </div>
         </div>
       </div>
@@ -48,7 +48,7 @@
               <p>Curabitur id eros vehicula, tincidunt libero eu, lobortis mi. In mollis eros a posuere imperdiet. Donec maximus elementum ex. Cras convallis ex rhoncus, laoreet libero eu, vehicula libero.</p>
               <p class="hidden-sm">Curabitur id eros vehicula, tincidunt libero eu, lobortis mi. In mollis eros a posuere imperdiet.</p>
               <div class="scroll-to-section"><a href="#section3">Details</a></div>
-          </div>
+            </div>
           </div>
         </div>
       </div>
@@ -62,7 +62,7 @@
               <p>Curabitur id eros vehicula, tincidunt libero eu, lobortis mi. In mollis eros a posuere imperdiet. Donec maximus elementum ex. Cras convallis ex rhoncus, laoreet libero eu, vehicula libero.</p>
               <p class="hidden-sm">Curabitur id eros vehicula, tincidunt libero eu, lobortis mi. In mollis eros a posuere imperdiet.</p>
               <div class="scroll-to-section"><a href="#section4">Read More</a></div>
-          </div>
+            </div>
           </div>
         </div>
       </div>
@@ -75,7 +75,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="section-heading">
-          <h2>Sirius Academy?</h2>
+          <h2>Why choose Sirius Academy?</h2>
         </div>
       </div>
       <div class="col-md-12">
@@ -89,11 +89,11 @@
             <article id='tabs-1'>
               <div class="row">
                 <div class="col-md-6">
-                  <img src="{% static 'assets/images/choose-us-image-01.png' %}" alt="">
+                  <img src="assets/images/choose-us-image-01.png" alt="">
                 </div>
                 <div class="col-md-6">
                   <h4>Best Education</h4>
-                  <p>Grad School is free educational HTML template with Bootstrap 4.5.2 CSS layout. Feel free to use it for educational or commercial purposes. You may want to make <a href="https://paypal.me/templatemo" target="_parent" rel="sponsored">a little donation</a> to TemplateMo. Please tell your friends about us. Thank you.</p>
+                  <p>Sirius Academy is free educational HTML template with Bootstrap 4.5.2 CSS layout. Feel free to use it for educational or commercial purposes. You may want to make <a href="https://paypal.me/templatemo" target="_parent" rel="sponsored">a little donation</a> to TemplateMo. Please tell your friends about us. Thank you.</p>
                 </div>
               </div>
             </article>
@@ -131,9 +131,9 @@
   <div class="container">
     <div class="row">
       <div class="col-md-7 col-xs-12">
-        <div class="continer centerIt">
+        <div class="container centerIt">
           <div>
-            <h4>Take <em>any online course</em> and get your fee halved!</h4>
+            <h4>Take <em>any of our course</em> and pay half before the time counts down.</h4>
             <div class="counter">
 
               <div class="days">
@@ -168,8 +168,6 @@
           <form id="contact" action="" method="get">
             <div class="row">
               <div class="col-md-12">
-                {% csrf_token %} 
-                {{form|crispy}}
                 <fieldset>
                   <input name="name" type="text" class="form-control" id="name" placeholder="Your Name" required="">
                 </fieldset>
@@ -207,7 +205,7 @@
           <h4>Watch the video to learn more <em>about Grad School</em></h4>
           <p>You are NOT allowed to redistribute this template ZIP file on any template collection website. However, you can use this template to convert into a specific theme for any kind of CMS platform such as WordPress. You may <a rel="nofollow" href="https://templatemo.com/contact" target="_parent">contact TemplateMo</a> for details.
           <br><br>Suspendisse tincidunt, magna ut finibus rutrum, libero dolor euismod odio, nec interdum quam felis non ante.</p>
-          <div class="main-button"><a rel="nofollow" href="https://fb.com/templatemo" target="_parent">External URL</a></div>
+          <div class="main-button"><a rel="nofollow" href="#" target="_parent">External URL</a></div>
         </div>
       </div>
       <div class="col-md-6">
@@ -224,78 +222,5 @@
   </div>
 </section>
 
-<section class="section contact" href="{% url 'home' %}" data-section="section6">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="section-heading">
-          <h2>Let’s Keep In Touch</h2>
-        </div>
-      </div>
-      <div class="col-md-6">
-      
-      <!-- Do you need a working HTML contact-form script?-->
-                  
-                  
-        <form id="contact" action="" method="POST">
-          <div class="row">
-            <div class="col-md-6">
-              {% csrf_token %} 
-              {{form|crispy}}
-                <fieldset>
-                  <input name="name" type="text" class="form-control" id="name" placeholder="Your Name" required="">
-                </fieldset>
-              </div>
-              <div class="col-md-6">
-                <fieldset>
-                  <input name="email" type="text" class="form-control" id="email" placeholder="Your Email" required="">
-                </fieldset>
-              </div>
-            <div class="col-md-12">
-              <fieldset>
-                <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your message..." required=""></textarea>
-              </fieldset>
-            </div>
-            <div class="col-md-12">
-              <fieldset>
-                <button type="submit" id="form-submit" class="button">Send Message Now</button>
-              </fieldset>
-            </div>
-          </div>
-        </form>
-      </div>
-      <div class="col-md-6">
-        <div id="map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31716.498239437296!2d3.453506640970722!3d6.450198251339642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103bf452da3bd44b%3A0x47331fb41adc9d28!2sLekki%20Phase%201%20106104%2C%20Lekki!5e0!3m2!1sen!2sng!4v1645101324575!5m2!1sen!2sng" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!--<footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class ="footer-pad">
-                <h4>Courses</h4>
-                <ul class="list-unstyled" >
-                  <li><a href="#">Data Science</a></li>
-                  <li> <a href = "#">Data Analysis</a> </li>
-                  <li> <a href ="#">Python</a> </li>
-                  <li> <a href = "#">Django</a> </li>
-                </ul>
-              </div>
-        <p><i class="fa fa-copyright"></i> {% now 'Y' %} Tech-School. All rights Reserved
-        
-         | Design: <a href="https://templatemo.com" rel="sponsored" target="_parent">TemplateMo</a></p>
-      </div>
-    </div>
-  </div>
-</footer>-->
-
-<!-- Scripts -->
-<!-- Bootstrap core JavaScript -->
-  
-<!--{% lorem 5 p %}-->
-{% endblock %} 
+  {% endblock %}
+</body>

@@ -48,7 +48,7 @@ class Teacher(User):
     
     
     joindate=models.DateField(auto_now_add=True)
-    tech_stack = models.TextField(_('What course(s) are you good at.'))
+    tech_stack = models.TextField(_('programming languanges you are good at'))
     approval_status = models.CharField(
         max_length=2,
         choices=APPROVAL_CHOICES,
